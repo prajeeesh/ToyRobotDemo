@@ -30,30 +30,36 @@ namespace ToyRobot.Web.Controllers
             string[] commandSeparator = new string[] { "PLACE" };
             string[] inputs = robotInputModel.Split(commandSeparator, StringSplitOptions.None);
             string[] stringSeparators = new string[] { "\r\n" };
-            //var commands = inputs.Split(stringSeparators, StringSplitOptions.None);
-            foreach (string commands in inputs)
-            {
-                ToyRobotInputModel inputModel = new ToyRobotInputModel();
-                if (!string.IsNullOrEmpty(commands))
-                {
-                    var command = commands.Split(stringSeparators, StringSplitOptions.None);
 
-                    if (command.Length > 1)
+            //Validates the inputs 
+            outputModel.ErrorMessage = ValidateInput(robotInputModel);
+
+            if (string.IsNullOrEmpty(outputModel.ErrorMessage))
+            {
+                foreach (string commands in inputs)
+                {
+                    ToyRobotInputModel inputModel = new ToyRobotInputModel();
+                    if (!string.IsNullOrEmpty(commands))
                     {
-                        string[] startingCoordinate = command[0].Split(',');
-                        if (startingCoordinate.Length > 2)
+                        var command = commands.Split(stringSeparators, StringSplitOptions.None);
+
+                        if (command.Length > 1)
                         {
-                            inputModel.Position.PositionX = Convert.ToInt32(startingCoordinate[0]);
-                            inputModel.Position.PositionY = Convert.ToInt32(startingCoordinate[1]);
-                            inputModel.Position.Heading = startingCoordinate[2];
+                            string[] startingCoordinate = command[0].Split(',');
+                            if (startingCoordinate.Length > 2)
+                            {
+                                inputModel.Position.PositionX = Convert.ToInt32(startingCoordinate[0]);
+                                inputModel.Position.PositionY = Convert.ToInt32(startingCoordinate[1]);
+                                inputModel.Position.Heading = startingCoordinate[2];
+                            }
+                            for (int i = 1; i < command.Length; i++)
+                            {
+                                if (!string.IsNullOrEmpty(command[i]))
+                                    inputModel.InstructionSet.Add(command[i]);
+                            }
                         }
-                        for (int i = 1; i < command.Length; i++)
-                        {
-                            if (!string.IsNullOrEmpty(command[i]))
-                                inputModel.InstructionSet.Add(command[i]);
-                        }
+                        controlModel.RobotInputs.Add(inputModel);
                     }
-                    controlModel.RobotInputs.Add(inputModel);
                 }
             }
             finalCoordinates = robotMovementServices.ExecuteRobotNavigation(controlModel);
@@ -62,18 +68,14 @@ namespace ToyRobot.Web.Controllers
             return View(outputModel);
         }
 
-        public ActionResult About()
+       private string ValidateInput(string inputCommands)
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            string validationError = string.Empty;
+            if (!inputCommands.Contains("PLACE"))
+                validationError = "At least one PLACE command should be present";
+            if (!inputCommands.Contains("REPORT"))
+                validationError += Environment.NewLine + "At least one REPORT command should be present";
+            return validationError;
         }
     }
 }
