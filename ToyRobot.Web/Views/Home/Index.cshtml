@@ -1,0 +1,62 @@
+﻿@model Robot.Model.ToyRobotOutputViewModel
+
+<div class="row">
+    <div class="col-lg-12 col-md-9 instructions">
+        <h4>Instructions</h4>
+        <p>
+            PLACE will put the toy robot on the table in position X,Y and facing NORTH, SOUTH, EAST or WEST.
+            . The origin (0,0) can be considered to be the SOUTH WEST most corner.
+            <br />
+            Allowed commands are 
+            <br />
+            PLACE X,Y,F
+            MOVE
+            LEFT
+            RIGHT
+            REPORT
+
+        </p>
+        <p>
+            Example :
+            <ul>
+                <li>PLACE 0,0,NORTH</li>
+                <li>MOVE</li>
+                <li>REPORT </li>
+            </ul>
+        </p>
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-6 col-md-6">
+        <form id="robotInput" method="post">
+            <div class="roundcorner">
+                <p>INPUT</p>
+
+                @Html.TextArea("robotInputModel", new { rows = 5, columns = 20 })
+                <div><input type="submit" value="Execute" id="btnExecute" class="form-submit-button" /></div>
+              <span id="errorMessage" class="has-error">
+                    @if (Model != null && !String.IsNullOrEmpty(Model.ErrorMessage))
+                    {
+                        @Model.ErrorMessage
+                    }
+                </span>
+            </div>
+            <div id="robotoutput" class="roundcorner">
+                <p>OUTPUT</p>
+                @if (Model != null && String.IsNullOrEmpty(Model.ErrorMessage))
+                {
+                    foreach (var output in Model.ToyRobotOutputs)
+                    {
+                        <p>@output.PositionX @output.PositionY @output.Heading</p>
+                    }
+                }
+                else
+                {
+
+                }
+            </div>
+        </form>
+    </div>
+
+</div>

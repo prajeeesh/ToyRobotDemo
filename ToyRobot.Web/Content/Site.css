@@ -1,0 +1,63 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+.herodiv {
+    padding: 30px;
+    margin-bottom: 30px;
+    font-size: 21px;
+    font-weight: 200;
+    line-height: 2.1428571435;
+    color: inherit;
+    background-color: #eeeeee;
+}
+.roundcorner {
+    border-radius: 5px;
+    border: 2px solid #73AD21;
+    padding: 10px;
+    margin-top: 5px;
+    margin-left: 5px;
+    float:left;
+    height:250px;
+    width:250px;
+   
+}
+.instructions {
+    border-radius: 5px;
+    border: 1px solid;
+    background:#fadede;
+    padding: 10px;
+    margin-top: 5px;
+    margin-left: 5px;
+    width: 80%;
+ }
+.form-submit-button {
+    background: #016ABC;
+    color: #fff;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px #eee;
+    text-shadow: none;
+    margin-top: 5px;
+}
+

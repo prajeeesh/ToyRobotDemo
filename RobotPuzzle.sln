@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Robot.Model", "Robot.Model\Robot.Model.csproj", "{C108299E-9C65-42F3-913D-6C88830CAA0B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToyRobot.MockConsole", "ToyRobot.MockConsole\ToyRobot.MockConsole.csproj", "{328F2936-11DE-4EA8-9F95-D77034D842FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToyRobot.Web", "ToyRobot.Web\ToyRobot.Web.csproj", "{E3A7EBF4-472B-4160-AB18-B394830224E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToyRobot.Services", "ToyRobot.Services\ToyRobot.Services.csproj", "{E3B29627-422B-4D6B-8B76-CCB65EEEDB30}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C108299E-9C65-42F3-913D-6C88830CAA0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C108299E-9C65-42F3-913D-6C88830CAA0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C108299E-9C65-42F3-913D-6C88830CAA0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C108299E-9C65-42F3-913D-6C88830CAA0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{328F2936-11DE-4EA8-9F95-D77034D842FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{328F2936-11DE-4EA8-9F95-D77034D842FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{328F2936-11DE-4EA8-9F95-D77034D842FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{328F2936-11DE-4EA8-9F95-D77034D842FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3A7EBF4-472B-4160-AB18-B394830224E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3A7EBF4-472B-4160-AB18-B394830224E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3A7EBF4-472B-4160-AB18-B394830224E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3A7EBF4-472B-4160-AB18-B394830224E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3B29627-422B-4D6B-8B76-CCB65EEEDB30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3B29627-422B-4D6B-8B76-CCB65EEEDB30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3B29627-422B-4D6B-8B76-CCB65EEEDB30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3B29627-422B-4D6B-8B76-CCB65EEEDB30}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
